@@ -14,9 +14,14 @@ int Ejercicio4();
 
 /*
  * 6. Escriba un programa que pida dos numeros A y B e imprima en pantalla la potencia
- * A^B (sin uso de librerias matematicas)
+ * A^B (sin uso de librerias matematicas).
  */
 int Ejercicio6();
+
+/*
+ * 8. Escriba un programa que pida un numero N e imprima en pantalla su factorial.
+ */
+int Ejercicio8();
 
 
 //1. Ejercicio #2:
@@ -82,8 +87,39 @@ int Ejercicio6(){
     return 0;
 }
 
-int main()
-{
-    Ejercicio6();
+//4. Ejercicio #8:
+int Ejercicio8(){
+
+    int numero;
+    int factorial = 1;
+    cout << "Ingrese un numero: ";
+    cin >> numero;
+
+    for (int i = 1; i <= numero; i++){
+        factorial *= i;
+        cout << i;
+
+        if (i < numero){
+            cout << "*";
+        }
+    }
+
+    cout << " = " << factorial << endl;
+
+    cout << numero << "!" << "=" << factorial << endl;
+
     return 0;
 }
+
+int main()
+{
+    Ejercicio8();
+    return 0;
+}
+
+
+
+
+
+
+
