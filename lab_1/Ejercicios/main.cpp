@@ -23,6 +23,10 @@ int Ejercicio6();
  */
 int Ejercicio8();
 
+/*
+ * 10. Escriba un programa que pida un numero N e imprima en pantalla todos los multiplos de dicho numero entre 1 y 100.
+ */
+int Ejercicio10();
 
 //1. Ejercicio #2:
 void Ejercicio2(){
@@ -111,9 +115,26 @@ int Ejercicio8(){
     return 0;
 }
 
+//5. Ejercicio #10:
+int Ejercicio10(){
+
+    int numero;
+    cout << "Ingrese un numero: ";
+    cin >> numero;
+
+    int multiplo = numero;
+
+    while(multiplo <= 100){
+        cout << multiplo << endl;
+        multiplo += numero;
+    }
+
+    return 0;
+}
+
 int main()
 {
-    Ejercicio8();
+    Ejercicio10();
     return 0;
 }
 
