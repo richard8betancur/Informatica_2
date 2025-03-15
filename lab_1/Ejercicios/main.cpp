@@ -28,6 +28,18 @@ int Ejercicio8();
  */
 int Ejercicio10();
 
+/*
+ * 12. Escriba un programa que pida un numero N e imprima en pantalla todas las potencias desde N^1 hasta N^5
+ */
+int Ejercicio12();
+
+
+
+
+
+
+
+
 //1. Ejercicio #2:
 void Ejercicio2(){
 
@@ -132,9 +144,29 @@ int Ejercicio10(){
     return 0;
 }
 
+//6. Ejercicio #12:
+int Ejercicio12(){
+
+    int numero;
+    cout << "Ingresa un numero: ";
+    cin >> numero;
+
+    for (int i = 1; i <= 5; i++){
+        int potencia = 1;
+
+        for (int j = 0; j < i; j++){
+            potencia *= numero;
+        }
+
+        cout << numero << "^" << i << "=" << potencia << endl;
+    }
+
+    return 0;
+}
+
 int main()
 {
-    Ejercicio10();
+    Ejercicio12();
     return 0;
 }
 
