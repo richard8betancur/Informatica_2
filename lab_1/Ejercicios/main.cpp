@@ -1,4 +1,5 @@
 #include <iostream>
+#include <limits>
 
 using namespace std;
 
@@ -37,37 +38,59 @@ int Ejercicio12();
 
 
 
-
-
-
 //1. Ejercicio #2:
 void Ejercicio2(){
 
     int numero;
-    cout << "Por favor ingrese un numero: ";
-    cin >> numero;
 
-    if (numero % 2 == 0){
-        cout << "El numero " << numero << " es par. " << endl;
-    } else {
-        cout << "El numero " << numero << " es impar. " << endl;
+    while (true){
+        cout << "Por favor ingrese un numero: ";
+        cin >> numero;
+
+        if (cin.fail()){
+            cout << "Error, ingrese un numero valido. " << endl;
+
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            continue;
+        }
+
+        if (numero % 2 == 0){
+            cout << "El numero " << numero << " es par. " << endl;
+            break;
+        } else if (numero % 2 == 1) {
+            cout << "El numero " << numero << " es impar. " << endl;
+            break;
+        }
     }
 }
 
 //2. Ejercicio #4:
 int Ejercicio4(){
     int a, b;
-    cout << "Ingrese un numero: ";
-    cin >> a;
-    cout << "Ingrese otro numero: ";
-    cin >> b;
 
-    if (a < b){
-        cout << "El numero " << a << " es menor que el numero " << b << endl;
-    } else if (b < a){
-        cout << "El numero " << b << " es menor que el numero " << a << endl;
-    } else {
-        cout << "Los numeros " << a << " y " << b << " son iguales. " << endl;
+    while(true){
+        cout << "Ingrese dos numeros: ";
+        cin >> a >> b;
+
+        if (cin.fail()){
+            cout << "Error, uno de los numeros es incorrecto. " << endl;
+
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            continue;
+        }
+
+        if (a < b){
+            cout << "El numero " << a << " es menor que el numero " << b << endl;
+            break;
+        } else if (b < a){
+            cout << "El numero " << b << " es menor que el numero " << a << endl;
+            break;
+        } else {
+            cout << "Los numeros " << a << " y " << b << " son iguales. " << endl;
+            break;
+        }
     }
 
     return 0;
@@ -76,8 +99,8 @@ int Ejercicio4(){
 //3. Ejercicio #6:
 int Ejercicio6(){
 
-    long long a, b;
-    long long resultado = 1;
+    int a, b;
+    int resultado = 1;
     cout << "Ingrese un numero (base): ";
     cin >> a;
     cout << "Ingrese otro numero (exponente): ";
@@ -166,7 +189,7 @@ int Ejercicio12(){
 
 int main()
 {
-    Ejercicio12();
+    Ejercicio10();
     return 0;
 }
 
