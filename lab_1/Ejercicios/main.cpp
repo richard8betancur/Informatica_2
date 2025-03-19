@@ -34,6 +34,12 @@ int Ejercicio10();
  */
 int Ejercicio12();
 
+/*
+ * 14. Escriba un problema que imprima dos columnas paralelas, una con los numeros del 1 al 50 y la otra del 50 al 1.
+ */
+void Ejercicio14();
+
+
 
 
 
@@ -187,9 +193,18 @@ int Ejercicio12(){
     return 0;
 }
 
+//7. Ejercicio #14:
+void Ejercicio14(){
+
+    for (int i = 1, j = 50; i <= 50; i++, j--){
+        cout << i << "      " << j << endl;
+    }
+}
+
+
 int main()
 {
-    Ejercicio10();
+    Ejercicio14();
     return 0;
 }
 
