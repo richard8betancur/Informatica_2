@@ -203,9 +203,7 @@ int Ejercicio10(){
                 multiplo += numero;
             }
 
-            cout << "Los multiplos de el numero " << numero << " son " << multiplo << endl;
             break;
-
 
         }
     return 0;
