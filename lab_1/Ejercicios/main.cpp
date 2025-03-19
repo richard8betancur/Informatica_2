@@ -39,6 +39,12 @@ int Ejercicio12();
  */
 void Ejercicio14();
 
+/*
+ * 16. Escriba un programa que pida constantemente numeros hasta que se ingrese el numero 0 e imprimma en pantalla el promedio de los numeros (excluyendo el 0)
+ */
+int Ejercicio16();
+
+
 
 
 
@@ -254,9 +260,41 @@ void Ejercicio14(){
     }
 }
 
+//8. Ejercicio #16:
+int Ejercicio16(){
+
+    int numero;
+    int suma=0;
+    int contador=1;
+
+    while (true){
+        cout << "ingrese n numeros para calcular el promedio (0 para calcular): ";
+        cin >> numero;
+
+
+
+        if (numero != 0){
+            suma += numero;
+
+            contador++;
+
+        } else {
+            break;
+        }
+
+
+    }
+
+    cout << "El promedio de los n numeros ingresados es: " << suma/contador << endl;
+
+
+    }
+
+
+
 int main()
 {
-    Ejercicio10();
+    Ejercicio16();
     return 0;
 }
 
