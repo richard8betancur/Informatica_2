@@ -47,7 +47,7 @@ void Ejercicio14();
 //1. Ejercicio #2:
 void Ejercicio2(){
 
-    int numero;
+    long long int numero;
 
     while (true){
         cout << "Por favor ingrese un numero: ";
@@ -64,7 +64,7 @@ void Ejercicio2(){
         if (numero % 2 == 0){
             cout << "El numero " << numero << " es par. " << endl;
             break;
-        } else if (numero % 2 == 1) {
+        } else if (numero % 2 != 1) {
             cout << "El numero " << numero << " es impar. " << endl;
             break;
         }
@@ -73,7 +73,7 @@ void Ejercicio2(){
 
 //2. Ejercicio #4:
 int Ejercicio4(){
-    int a, b;
+    long long int a, b;
 
     while(true){
         cout << "Ingrese dos numeros: ";
@@ -105,29 +105,41 @@ int Ejercicio4(){
 //3. Ejercicio #6:
 int Ejercicio6(){
 
-    int a, b;
-    int resultado = 1;
-    cout << "Ingrese un numero (base): ";
-    cin >> a;
-    cout << "Ingrese otro numero (exponente): ";
-    cin >> b;
+    long long int a, b;
+    long long int resultado = 1;
 
-    if (a == 0 && b == 0){
-        cout << "Error, el resultado de 0^0 es una indeterminacion" << endl;
-        return 0;
-    } else if (b == 0){
-        cout << "El resultado de " << a << "^" << b << " es 1. " << endl;
-        return 0;
-    } else if (a == 0){
-        cout << "El resultado de " << a << "^" << b << " es 0. " << endl;
-        return 0;
+    while  (true){
+
+        cout << "Ingrese dos numeros, primero para la base y el segundo para el exponente: ";
+        cin >> a >> b;
+
+        if (cin.fail()){
+            cout << "Error, uno de los numeros es invalido. " << endl;
+
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            continue;
+        }
+
+        if (a == 0 && b == 0){
+            cout << "Error, el resultado de 0^0 es una indeterminacion" << endl;
+            return 0;
+        } else if (b == 0){
+            cout << "El resultado de " << a << "^" << b << " es 1. " << endl;
+            return 0;
+        } else if (a == 0){
+            cout << "El resultado de " << a << "^" << b << " es 0. " << endl;
+            return 0;
+        }
+
+        for (int i = 0; i < b; i++){
+            resultado *= a;
+        }
+
+        cout << "El resultado de " << a << "^" << b << " es " << resultado << endl;
+        break;
     }
 
-    for (int i = 0; i < b; i++){
-        resultado *= a;
-    }
-
-    cout << "El resultado de " << a << "^" << b << " es " << resultado << endl;
 
     return 0;
 }
@@ -135,23 +147,35 @@ int Ejercicio6(){
 //4. Ejercicio #8:
 int Ejercicio8(){
 
-    int numero;
-    int factorial = 1;
-    cout << "Ingrese un numero: ";
-    cin >> numero;
+    long long int numero;
+    long long int factorial = 1;
 
-    for (int i = 1; i <= numero; i++){
-        factorial *= i;
-        cout << i;
+    while (true){
+        cout << "Ingrese un numero: ";
+        cin >> numero;
 
-        if (i < numero){
-            cout << "*";
+        if (cin.fail()){
+            cout << "Error, ingresaste un numero incorrecto. " << endl;
+
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            continue;
         }
+
+        for (int i = 1; i <= numero; i++){
+            factorial *= i;
+            cout << i;
+
+            if (i < numero){
+                cout << "*";
+            }
+        }
+
+        cout << " = " << factorial << endl;
+
+        cout << numero << "!" << "=" << factorial << endl;
+        break;
     }
-
-    cout << " = " << factorial << endl;
-
-    cout << numero << "!" << "=" << factorial << endl;
 
     return 0;
 }
@@ -159,36 +183,65 @@ int Ejercicio8(){
 //5. Ejercicio #10:
 int Ejercicio10(){
 
-    int numero;
-    cout << "Ingrese un numero: ";
-    cin >> numero;
+    unsigned int numero;
 
-    int multiplo = numero;
+    while (true){
+        cout << "Ingrese un numero: ";
+        cin >> numero;
 
-    while(multiplo <= 100){
-        cout << multiplo << endl;
-        multiplo += numero;
-    }
+        if (cin.fail()){
+            cout << "Error, ingresaste un numero invalido. " << endl;
 
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            continue;
+        }
+            int multiplo = numero;
+
+            while(multiplo <= 100){
+                cout << multiplo << endl;
+                multiplo += numero;
+            }
+
+            cout << "Los multiplos de el numero " << numero << " son " << multiplo << endl;
+            break;
+
+
+        }
     return 0;
 }
 
 //6. Ejercicio #12:
 int Ejercicio12(){
 
-    int numero;
-    cout << "Ingresa un numero: ";
-    cin >> numero;
+    long long int numero;
 
-    for (int i = 1; i <= 5; i++){
-        int potencia = 1;
+    while (true){
+        cout << "Ingresa un numero: ";
+        cin >> numero;
 
-        for (int j = 0; j < i; j++){
-            potencia *= numero;
+        if (cin.fail()){
+            cout << "Error, ingresaste un numero invalido. " << endl;
+
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            continue;
         }
 
-        cout << numero << "^" << i << "=" << potencia << endl;
+        for (int i = 1; i <= 5; i++){
+            long long int potencia = 1;
+
+            for (int j = 0; j < i; j++){
+                potencia *= numero;
+            }
+
+            cout << numero << "^" << i << "=" << potencia << endl;
+        }
+
+        break;
     }
+
+
 
     return 0;
 }
@@ -201,10 +254,9 @@ void Ejercicio14(){
     }
 }
 
-
 int main()
 {
-    Ejercicio14();
+    Ejercicio10();
     return 0;
 }
 
