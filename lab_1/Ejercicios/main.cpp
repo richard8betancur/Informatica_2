@@ -279,16 +279,12 @@ int Ejercicio16(){
         } else {
             break;
         }
-
-
     }
 
     cout << "El promedio de los n numeros ingresados es: " << suma/contador << endl;
 
 
     }
-
-
 
 int main()
 {
