@@ -44,6 +44,13 @@ void Ejercicio14();
  */
 int Ejercicio16();
 
+/*
+ * 18. Escriba un programa que pida un número N e imprima si es o no un cuadrado perfecto
+ */
+void Ejercicio18();
+
+
+
 
 
 
@@ -290,11 +297,31 @@ int Ejercicio16(){
 
     }
 
+//9. Ejercicio #18:
+int Ejercicio18(){
+    bool cuadrado = false;
+        int numero;
+    cout << "Ingrese un numero para comprobar si es o no cuadrado perfecto: ";
+                cin >> numero;
+
+    for (int i = 0; i * i<= numero; i++){
+                    cuadrado = true;
+        break;
+    }
+
+    if (cuadrado){
+        cout << numero << " es un cuadrado perfecto" << endl;
+
+    } else{
+        cout << numero <<" NO es un cuadrado perfecto" << endl;
+    }
+
+}
 
 
 int main()
 {
-    Ejercicio16();
+    Ejercicio18();
     return 0;
 }
 
