@@ -44,6 +44,18 @@ void Ejercicio14();
  */
 int Ejercicio16();
 
+/*
+ * 18. Escriba un programa que pida un número N e imprima si es o no un cuadrado perfecto
+ */
+void Ejercicio18();
+
+/*
+ * 20. Escriba un programa que pida un número N e imprima si es o no un palíndromo
+ (igual de derecha a izquierda que de izquierda a derecha).
+ */
+void Ejercicio20();
+
+
 
 
 
@@ -202,16 +214,16 @@ int Ejercicio10(){
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
             continue;
         }
-            int multiplo = numero;
+        int multiplo = numero;
 
-            while(multiplo <= 100){
-                cout << multiplo << endl;
-                multiplo += numero;
-            }
-
-            break;
-
+        while(multiplo <= 100){
+            cout << multiplo << endl;
+            multiplo += numero;
         }
+
+        break;
+
+    }
     return 0;
 }
 
@@ -262,33 +274,111 @@ void Ejercicio14(){
 int Ejercicio16(){
 
     int numero;
-    int suma=0;
-    int contador=1;
+    double suma = 0.0;
+    int contador = 0;
+    double resultado;
 
     while (true){
         cout << "ingrese n numeros para calcular el promedio (0 para calcular): ";
         cin >> numero;
 
+        if (cin.fail()){
+            cout << "Ingrese un numero valido. " << endl;
 
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            continue;
+        }
 
         if (numero != 0){
             suma += numero;
 
             contador++;
-
         } else {
             break;
         }
     }
 
-    cout << "El promedio de los n numeros ingresados es: " << suma/contador << endl;
+    resultado = suma / contador;
+    cout << "El promedio de los n numeros ingresados es: " << resultado << endl;
+
+    return 0;
+}
 
 
+//9. Ejercicio #18:
+void Ejercicio18(){
+
+    bool cuadrado = false;
+    int numero;
+
+    while(true){
+        cout << "Ingrese un numero para comprobar si es o no cuadrado perfecto: ";
+        cin >> numero;
+
+        if (cin.fail()){
+            cout << "Ingrese un numero valido. " << endl;
+
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            continue;
+        }
+        break;
     }
+
+
+    for (int i = 0; i * i<= numero; i++){
+        if (i * i == numero){
+            cuadrado = true;
+            break;
+        }
+    }
+
+    if (cuadrado){
+        cout << numero << " es un cuadrado perfecto" << endl;
+    } else{
+        cout << numero <<" NO es un cuadrado perfecto" << endl;
+    }
+}
+
+
+//10. Ejercicio #20:
+void Ejercicio20(){
+
+    string numero;
+
+    while(true){
+        cout << "Ingrese un numero para saber si es palindromo o no. ";
+        cin >> numero;
+
+        if (cin.fail()){
+            cout << "Ingrese un numero valido. " << endl;
+
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            continue;
+        }
+        break;
+    }
+
+    cout << "Ingresaste el numero " << numero << endl;
+
+
+
+
+
+    cout << numero[0] << endl;
+
+
+
+
+
+}
+
 
 int main()
 {
-    Ejercicio16();
+    Ejercicio20();
     return 0;
 }
 
