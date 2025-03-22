@@ -53,8 +53,18 @@ void Ejercicio18();
  * 20. Escriba un programa que pida un número N e imprima si es o no un palíndromo
  (igual de derecha a izquierda que de izquierda a derecha).
  */
-void Ejercicio20();
+bool Ejercicio20();
 
+/*
+ * 22. Escriba un programa que pida una cantidad entera de segundos y la imprima en formato horas:minutos:segundos.
+ */
+int Ejercicio22();
+
+/*
+ * 24. Escriba un programa que pida una número entero e imprima un cuadrado de dicho
+ tamaño, los bordes del cuadrado deben estar hechos con el carácter `+' y el interior debe estar vacío
+ */
+void Ejercicio24();
 
 
 
@@ -305,7 +315,6 @@ int Ejercicio16(){
     return 0;
 }
 
-
 //9. Ejercicio #18:
 void Ejercicio18(){
 
@@ -341,14 +350,52 @@ void Ejercicio18(){
     }
 }
 
-
 //10. Ejercicio #20:
-void Ejercicio20(){
+bool Ejercicio20(){
 
-    string numero;
+    string cadena;
+
+    while(true){   
+        cout << "Ingrese un numero para saber si es palindromo o no. ";
+        cin >> cadena;
+
+        bool Esnumero = true;
+        for (char c : cadena){
+            if(!isdigit(c)){
+                Esnumero = false;
+                break;
+            }
+        }
+
+        if (!Esnumero){
+            cout << "Error, ingrese un numero valido" << endl;
+
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            continue;
+        }
+
+        break;
+    }
+
+    for (int i = 0, j = cadena.length() - 1; i < j; i++, j--){
+        if (cadena[i] != cadena[j]){
+            cout << "El numero " << cadena << " no es un palindromo. " << endl;
+            return false;
+        }
+    }
+
+    cout << "El numero " << cadena << " es un palindromo. " << endl;
+    return true;
+}
+
+//11. Ejercicio #22:
+int Ejercicio22(){
+
+    int numero;
 
     while(true){
-        cout << "Ingrese un numero para saber si es palindromo o no. ";
+        cout << "Ingrese una cantidad de segundos para transformar en formato H/M/S " << endl;
         cin >> numero;
 
         if (cin.fail()){
@@ -361,24 +408,55 @@ void Ejercicio20(){
         break;
     }
 
+    cout << "El numero que ingresaste fue el: " << numero << endl;
+
+    int horas = numero / 3600;
+    int minutos = (numero % 3600) / 60;
+    int segundos = numero % 60;
+
+    cout << "El formato del numero a H/M/S es: " << horas << ":" << minutos << ":" << segundos << endl;
+
+    return 0;
+}
+
+//12. Ejercicio #24:
+void Ejercicio24(){
+    unsigned int numero;
+
+    while (true){
+        cout << "Ingrese un numero: ";
+        cin >> numero;
+
+        if (cin.fail()){
+            cout << "Error, ingresaste un numero invalido. " << endl;
+
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            continue;
+        }
+        break;
+    }
+
     cout << "Ingresaste el numero " << numero << endl;
 
-
-
-
-
-    cout << numero[0] << endl;
-
-
-
-
-
+    for (int i = 0; i < numero; i++){
+        for (int j = 0; j < numero ; j++){
+            if (j == 0 || j == numero - 1 || i == 0 || i == numero - 1){
+                cout << "+";
+            } else {
+                cout << " ";
+            }
+        }
+        cout << endl;
+    }
 }
+
+
 
 
 int main()
 {
-    Ejercicio20();
+    Ejercicio24();
     return 0;
 }
 
