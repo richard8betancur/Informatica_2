@@ -92,7 +92,7 @@ void Ejercicio2(){
         if (numero % 2 == 0){
             cout << "El numero " << numero << " es par. " << endl;
             break;
-        } else if (numero % 2 != 1) {
+        } else if (numero % 2 != 0) {
             cout << "El numero " << numero << " es impar. " << endl;
             break;
         }
@@ -224,7 +224,7 @@ int Ejercicio10(){
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
             continue;
         }
-        int multiplo = numero;
+        unsigned int multiplo = numero;
 
         while(multiplo <= 100){
             cout << multiplo << endl;
@@ -275,7 +275,7 @@ int Ejercicio12(){
 //7. Ejercicio #14:
 void Ejercicio14(){
 
-    for (int i = 1, j = 50; i <= 50; i++, j--){
+    for (unsigned int i = 1, j = 50; i <= 50; i++, j--){
         cout << i << "      " << j << endl;
     }
 }
@@ -283,9 +283,9 @@ void Ejercicio14(){
 //8. Ejercicio #16:
 int Ejercicio16(){
 
-    int numero;
+    signed long long int numero;
     double suma = 0.0;
-    int contador = 0;
+    unsigned int contador = 0;
     double resultado;
 
     while (true){
@@ -319,7 +319,7 @@ int Ejercicio16(){
 void Ejercicio18(){
 
     bool cuadrado = false;
-    int numero;
+    unsigned long long int numero;
 
     while(true){
         cout << "Ingrese un numero para comprobar si es o no cuadrado perfecto: ";
@@ -392,7 +392,7 @@ bool Ejercicio20(){
 //11. Ejercicio #22:
 int Ejercicio22(){
 
-    int numero;
+    unsigned long long int numero;
 
     while(true){
         cout << "Ingrese una cantidad de segundos para transformar en formato H/M/S " << endl;
@@ -410,9 +410,9 @@ int Ejercicio22(){
 
     cout << "El numero que ingresaste fue el: " << numero << endl;
 
-    int horas = numero / 3600;
-    int minutos = (numero % 3600) / 60;
-    int segundos = numero % 60;
+    unsigned int horas = numero / 3600;
+    unsigned int minutos = (numero % 3600) / 60;
+    unsigned int segundos = numero % 60;
 
     cout << "El formato del numero a H/M/S es: " << horas << ":" << minutos << ":" << segundos << endl;
 
@@ -439,8 +439,8 @@ void Ejercicio24(){
 
     cout << "Ingresaste el numero " << numero << endl;
 
-    for (int i = 0; i < numero; i++){
-        for (int j = 0; j < numero ; j++){
+    for (unsigned int i = 0; i < numero; i++){
+        for (unsigned int j = 0; j < numero ; j++){
             if (j == 0 || j == numero - 1 || i == 0 || i == numero - 1){
                 cout << "+";
             } else {
