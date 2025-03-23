@@ -66,6 +66,11 @@ int Ejercicio22();
  */
 void Ejercicio24();
 
+/*
+ * 26.  Escriba un programa que pida tres números e imprima el tipo de triangulo (isósceles, equilátero, escaleno)
+ */
+int Ejercicio26();
+
 
 
 
@@ -452,11 +457,40 @@ void Ejercicio24(){
 }
 
 
+int Ejercicio26(){
+
+    long long int num1,num2,num3;
+
+    while(true){
+        cout << "Ingrese tres numeros para calcular si forman un triangulo (isósceles, equilátero, escaleno)" << endl;
+        cin >> num1 >> num2 >> num3;
+
+        if(cin.fail()){
+            cout << "Ingresaste un numero invalido. " << endl;
+
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            continue;
+        }
+
+        if ((num1 + num2) <= num3 || (num2 + num3) <= num1 || (num3 + num1) <= num2){
+            cout << "Los numeros ingresados no forman un triangulo. " << endl;
+        } else if (num1 != num2 && num3 != num2 && num3 != num1){
+            cout << "Los 3 numeros ingresados son diferentes, forman un triangulo escaleno. " << endl;
+        } else if (num1 == num2 && num2 == num3){
+            cout << "Los 3 numeros ingresados son iguales, forman un triangulo equilatero. " << endl;
+        } else if ((num1 == num2) != num3 || (num1 == num3) != num2 || (num2 == num3) != num1){
+            cout << "Hay 2 numeros iguales, los 3 numeros forman un triangulo isoceles. " << endl;
+        }
+        break;
+    }
+}
+
 
 
 int main()
 {
-    Ejercicio24();
+    Ejercicio26();
     return 0;
 }
 
