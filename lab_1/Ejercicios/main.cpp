@@ -71,6 +71,10 @@ void Ejercicio24();
  */
 int Ejercicio26();
 
+/*
+ * 28.   Escriba un programa que encuentre el valor aproximado de pi en base a la siguiente suma infnita (serie de lebniz)
+ */
+int Ejercicio28();
 
 
 
@@ -484,13 +488,36 @@ int Ejercicio26(){
         }
         break;
     }
+
+    return 0;
 }
 
+int Ejercicio28(){
+
+    int numero;
+    double aprox = 0.0;
+    int signo = 1;
+
+    cout << "Ingrese un numero para calcular la aproximacion a el numero pi. " << endl;
+    cin >> numero;
+
+    for (int i = 0; i < numero; i++){
+        int denominador = 2*i + 1;
+        aprox += signo * (1.0 / denominador);
+        signo *= -1;
+    }
+
+    aprox *= 4;
+
+    cout << "El valor aproximado de pi es: " << aprox << endl;
+
+    return 0;
+}
 
 
 int main()
 {
-    Ejercicio26();
+    Ejercicio28();
     return 0;
 }
 
