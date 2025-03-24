@@ -40,7 +40,8 @@ int Ejercicio12();
 void Ejercicio14();
 
 /*
- * 16. Escriba un programa que pida constantemente numeros hasta que se ingrese el numero 0 e imprimma en pantalla el promedio de los numeros (excluyendo el 0)
+ * 16. Escriba un programa que pida constantemente numeros hasta que se ingrese el numero 0 e imprimma en pantalla el promedio de los numeros
+ * (excluyendo el 0)
  */
 int Ejercicio16();
 
@@ -51,7 +52,7 @@ void Ejercicio18();
 
 /*
  * 20. Escriba un programa que pida un número N e imprima si es o no un palíndromo
- (igual de derecha a izquierda que de izquierda a derecha).
+ * (igual de derecha a izquierda que de izquierda a derecha).
  */
 bool Ejercicio20();
 
@@ -62,19 +63,24 @@ int Ejercicio22();
 
 /*
  * 24. Escriba un programa que pida una número entero e imprima un cuadrado de dicho
- tamaño, los bordes del cuadrado deben estar hechos con el carácter `+' y el interior debe estar vacío
+ tamaño, los bordes del cuadrado deben estar hechos con el carácter `+' y el interior debe estar vacío.
  */
 void Ejercicio24();
 
 /*
- * 26.  Escriba un programa que pida tres números e imprima el tipo de triangulo (isósceles, equilátero, escaleno)
+ * 26. Escriba un programa que pida tres números e imprima el tipo de triangulo (isósceles, equilátero, escaleno).
  */
 int Ejercicio26();
 
 /*
- * 28.   Escriba un programa que encuentre el valor aproximado de pi en base a la siguiente suma infnita (serie de lebniz)
+ * 28. Escriba un programa que encuentre el valor aproximado de pi en base a la siguiente suma infnita (serie de lebniz).
  */
 int Ejercicio28();
+
+/*
+ * 30. Escriba un programa que genere un número aleatorio A (entre 0 y 100) y le pida al usuario que lo adivine.
+ */
+int Ejercicio30();
 
 
 
@@ -514,10 +520,41 @@ int Ejercicio28(){
     return 0;
 }
 
+int Ejercicio30(){
+
+    srand(time(0));
+
+    int numeroAleatorio = rand() % 101;
+    int numero2;
+    int contador = 0;
+
+    while(true){
+
+        cout << "Adinina el numero en un rango de (0-100): ";
+        cin >> numero2;
+        contador ++;
+
+        if (numero2 < numeroAleatorio){
+            cout << "Ingresaste un numero menor, sigue intentando. " << endl;
+            continue;
+        } else if(numero2 > numeroAleatorio){
+            cout << "Ingresaste un numero mayor, sigue intentando. " << endl;
+            continue;
+        } else {
+            cout << "Adivinaste el numero  aletorio, numero a adivinar: " << numeroAleatorio << ", ingresaste el numero: " << numero2 << endl;
+            cout << "Te demoraste " << contador << " veces en adivinar el numero. " << endl;
+            break;
+        }
+    }
+
+    return 0;
+
+}
+
 
 int main()
 {
-    Ejercicio28();
+    Ejercicio30();
     return 0;
 }
 
