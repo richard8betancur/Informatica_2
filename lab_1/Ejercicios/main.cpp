@@ -1,5 +1,5 @@
 #include <iostream>
-#include <limits>
+#include <cstdlib>
 
 using namespace std;
 
@@ -100,7 +100,7 @@ void Ejercicio2(){
             cout << "Error, ingrese un numero valido. " << endl;
 
             cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cin.ignore(1000, '\n');
             continue;
         }
 
@@ -126,7 +126,7 @@ int Ejercicio4(){
             cout << "Error, uno de los numeros es incorrecto. " << endl;
 
             cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cin.ignore(1000, '\n');
             continue;
         }
 
@@ -151,8 +151,7 @@ int Ejercicio6(){
     long long int a, b;
     long long int resultado = 1;
 
-    while  (true){
-
+    while(true){
         cout << "Ingrese dos numeros, primero para la base y el segundo para el exponente: ";
         cin >> a >> b;
 
@@ -160,7 +159,7 @@ int Ejercicio6(){
             cout << "Error, uno de los numeros es invalido. " << endl;
 
             cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cin.ignore(1000, '\n');
             continue;
         }
 
@@ -201,7 +200,7 @@ int Ejercicio8(){
             cout << "Error, ingresaste un numero incorrecto. " << endl;
 
             cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cin.ignore(1000, '\n');
             continue;
         }
 
@@ -247,7 +246,6 @@ int Ejercicio10(){
         }
 
         break;
-
     }
     return 0;
 }
@@ -351,7 +349,7 @@ void Ejercicio18(){
     }
 
 
-    for (int i = 0; i * i<= numero; i++){
+    for (int i = 0; i * i <= numero; i++){
         if (i * i == numero){
             cuadrado = true;
             break;
@@ -466,7 +464,7 @@ void Ejercicio24(){
     }
 }
 
-
+//13. Ejercicio #26
 int Ejercicio26(){
 
     long long int num1,num2,num3;
@@ -498,6 +496,7 @@ int Ejercicio26(){
     return 0;
 }
 
+//14. Ejercicio #28
 int Ejercicio28(){
 
     int numero;
@@ -516,22 +515,28 @@ int Ejercicio28(){
     aprox *= 4;
 
     cout << "El valor aproximado de pi es: " << aprox << endl;
-
     return 0;
 }
 
+//15. Ejercicio #30
 int Ejercicio30(){
-
     srand(time(0));
 
-    int numeroAleatorio = rand() % 101;
-    int numero2;
-    int contador = 0;
+    unsigned short int numeroAleatorio = rand() % 101;
+    unsigned int numero2;
+    unsigned int contador = 0;
 
     while(true){
-
         cout << "Adinina el numero en un rango de (0-100): ";
         cin >> numero2;
+
+        if (cin.fail()){
+            cout << "Error, ingresaste un numero invalido. " << endl;
+
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            continue;
+        }
         contador ++;
 
         if (numero2 < numeroAleatorio){
@@ -548,7 +553,6 @@ int Ejercicio30(){
     }
 
     return 0;
-
 }
 
 
