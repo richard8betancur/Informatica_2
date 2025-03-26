@@ -198,15 +198,13 @@ void Problema6(){
 //4. Problema #8:
 void Problema8(){
 
-    int a;
-    cin >> a;
-    cout << a << endl;
+
 
 }
 
 
 int main()
 {
-    Problema8();
+    Problema2();
     return 0;
 }
