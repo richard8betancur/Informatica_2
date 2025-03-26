@@ -2,15 +2,26 @@
 
 using namespace std;
 
-
-//1. Escriba un programa que permita determinar la minima combinacion de billestes y monedas para una cantidad de dinero determinada
+/*
+ * 1. Escriba un programa que permita determinar la minima combinacion de billestes y monedas para una
+ * cantidad de dinero determinada.
+ */
 void Problema2();
 
-//2. Escriba un programa que pida una hora en formato 24hrs y un tiempo de la misma manera(sume el tiempo a la hora ingresada)
+/*
+ * 2. Escriba un programa que pida una hora en formato 24hrs y un tiempo de la misma manera(sume el tiempo a la hora ingresada).
+ */
 void Problema4();
 
-//3. Escriba un programa que permita ingresar el número de elementos usados en la aproximación del numero de euler.
+/*
+ * 3. Escriba un programa que permita ingresar el número de elementos usados en la aproximación del numero de euler.
+ */
 void Problema6();
+
+/*
+ * 4. Escriba un programa que reciba 3 números a, b, c, y calcule la suma de todos los multiplos de a y b que sean menores a c.
+ */
+void Problema8();
 
 
 
@@ -154,7 +165,6 @@ void Problema4(){
 
 }
 
-
 //3. Problema #6:
 void Problema6(){
     int numero;
@@ -185,9 +195,18 @@ void Problema6(){
     cout << "e es aproximadamente: " << resultado << endl;
 }
 
+//4. Problema #8:
+void Problema8(){
+
+    int a;
+    cin >> a;
+    cout << a << endl;
+
+}
+
 
 int main()
 {
-    Problema4();
+    Problema8();
     return 0;
 }
