@@ -29,6 +29,15 @@ void Problema8();
  */
 int Problema10();
 
+/*
+ * 6. Escriba un programa que calcula el máximo factor primo de un número.
+ */
+int Problema12();
+
+
+
+
+
 //1. Problema #2:
 void Problema2(){
     unsigned long long int numero;
@@ -244,6 +253,7 @@ void Problema8(){
     }
 }
 
+//5. Problema #10:
 int Problema10(){
     int num;
     while(true){
@@ -292,9 +302,52 @@ int Problema10(){
     return 0;
 }
 
+//6. Problema #12:
+int Problema12(){
+
+    int num;
+
+    while(true){
+        cout << "Ingrese un numero para calcular su mayor factor primo: ";
+        cin >> num;
+
+        if (cin.fail() || num < 2){
+            cout << "Ingresaste un numero invalido o menor que 2. " << endl;
+
+            cin.clear();
+            cin.ignore(1000, '\n');
+            continue;
+        }
+        break;
+    }
+
+    int MayorFactorPrimo = 1;
+
+    for (int i = 2; i <= num; i++){
+        if (num % i == 0){
+            bool Esprimo = true;
+
+            for (int j = 2; j * j <= i; j++){
+                if (i % j == 0){
+                    Esprimo = false;
+                    break;
+                }
+            }
+
+            if (Esprimo){
+                MayorFactorPrimo = i;
+            }
+        }
+    }
+
+    cout << "El mayor factor primo de " << num << " es " << MayorFactorPrimo << endl;
+
+    return 0;
+}
+
 
 int main()
 {
-    Problema10();
+    Problema12();
     return 0;
 }
