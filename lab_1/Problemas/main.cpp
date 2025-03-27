@@ -264,6 +264,19 @@ void Problema8(){
             multiplos.push_back(i);
         }
     }
+
+    int suma = 0;
+    for (int num : multiplos) {
+        suma += num;
+    }
+
+    // Mostrar los múltiplos y la suma
+    cout << "Múltiplos únicos de " << a << " y " << b << " menores que " << c << ": ";
+    for (int num : multiplos) {
+        cout << num << " ";
+    }
+    cout << endl;
+    cout << "Suma total: " << suma << endl;
 }
 
 //5. Problema #10:
@@ -419,6 +432,6 @@ int Problema16(){
 
 int main()
 {
-    Problema16();
+    Problema8();
     return 0;
 }
