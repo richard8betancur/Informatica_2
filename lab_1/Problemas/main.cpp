@@ -35,10 +35,18 @@ int Problema10();
 int Problema12();
 
 /*
- * 7.escriba un programa que calcule el número palíndromo más grande que se puede
- * obtener como una multiplicación de números de 3 dígitos. |
+ * 7. Escriba un programa que calcule el número palíndromo más grande que se puede
+ * obtener como una multiplicación de números de 3 dígitos.
  */
 int Problema14();
+
+/*
+ * 8. Escriba un programa que reciba un número k y calcule cual es el elemento inicial j(semilla),menor
+ * que k, que produce la serie más larga y diga cuantos términos m tiene la serie.
+ */
+int Problema16();
+
+
 
 
 
@@ -377,15 +385,40 @@ Problema14(){
             }
         }
     }
-
     cout << valor1 << " * " << valor2 << " = " << MaxPalindromo << endl;
 
     return MaxPalindromo;
 }
 
+//8. Problema #16:
+int Problema16(){
+
+    int k;
+
+    while(true){
+        cout << "Ingrese un valor para calcular el elemento menor de dicho numero (mediante la serie Collatz): ";
+        cin >> k;
+
+        if (cin.fail()){
+            cout << "Error, ingresa un valor invalido. " << endl;
+
+            cin.clear();
+            cin.ignore(1000, '\n');
+            continue;
+        }
+
+        break;
+    }
+
+    cout << "Numero ingresado: " << k << endl;
+
+
+
+}
+
 
 int main()
 {
-    Problema14();
+    Problema16();
     return 0;
 }
