@@ -29,6 +29,20 @@ void Problema8();
  */
 int Problema10();
 
+/*
+ * 6. Escriba un programa que calcula el máximo factor primo de un número.
+ */
+int Problema12();
+
+/*
+ * 7.escriba un programa que calcule el número palíndromo más grande que se puede
+ * obtener como una multiplicación de números de 3 dígitos. |
+ */
+int Problema14();
+
+
+
+
 //1. Problema #2:
 void Problema2(){
     unsigned long long int numero;
@@ -48,7 +62,7 @@ void Problema2(){
         break;
     }
 
-    cout << "Ingresaste el numero " << numero << endl;
+    cout << "Ingresaste la cantidad: " << numero << endl;
 
     int restante = numero;
 
@@ -152,7 +166,8 @@ void Problema4(){
     int hora2 = duracion / 100;
     int duracion2 = duracion % 100;
 
-    if (hora1 < 0 || hora1 >= 24 || duracion1 < 0 || duracion1 >= 60 || hora2 < 0 || hora2 >= 24 || duracion2 < 0 || duracion2 >= 60){
+    if (hora1 < 0 || hora1 >= 24 || duracion1 < 0 || duracion1 >= 60 ||
+        hora2 < 0 || hora2 >= 24 || duracion2 < 0 || duracion2 >= 60){
         cout << hora << " o " << duracion << " es un tiempo invalido. " << endl;
         return;
     }
@@ -204,6 +219,7 @@ void Problema8(){
 
 
     int a, b, c;
+
     while(true){
         cout << "Ingrese dos numeros a y b para sumar: ";
         cin >> a;
@@ -217,7 +233,6 @@ void Problema8(){
             cin.clear();
             cin.ignore(1000, '\n');
             continue;
-
         }
         break;
     }
@@ -241,18 +256,9 @@ void Problema8(){
             multiplos.push_back(i);
         }
     }
-
-    int suma = 0;
-
-    for(size_t i = 0 ; i < multiplos.size(); i++){
-        if(i > 0) cout << " + ";
-        cout << multiplos[i];
-        suma += multiplos[i];
-    }
-
-    cout << " = " << suma << endl;
 }
 
+//5. Problema #10:
 int Problema10(){
     int num;
     while(true){
@@ -265,47 +271,121 @@ int Problema10(){
             cin.clear();
             cin.ignore(1000, '\n');
             continue;
-
         }
         break;
     }
 
 
     if(num < 1){
-
         cout << "Numero incorrecto";
-
         return 0;
-
     }
 
     int contador = 0;
-    int numero = 2;
+    int numero = 1;
 
     while(contador < num){
+        numero++;
         bool EsPrimo = true;
-        for(int i = 2 ; i*i <= num ; i++){
-            if( num % i == 0){
-                EsPrimo = false;
-                    break;
-            }
 
+
+        for(int i = 2 ; i*i <= numero; i++){
+            if(numero % i == 0){
+                EsPrimo = false;
+                break;
+            }
         }
+
+
         if(EsPrimo){
             contador++;
         }
+    }
 
-        if(contador < num){
-            numero++;
+    cout <<  "El primo numero " << num << " es " << numero << endl;
+
+    return 0;
+}
+
+//6. Problema #12:
+int Problema12(){
+
+    int num;
+
+    while(true){
+        cout << "Ingrese un numero para calcular su mayor factor primo: ";
+        cin >> num;
+
+        if (cin.fail() || num < 2){
+            cout << "Ingresaste un numero invalido o menor que 2. " << endl;
+
+            cin.clear();
+            cin.ignore(1000, '\n');
+            continue;
+        }
+        break;
+    }
+
+    int MayorFactorPrimo = 1;
+
+    for (int i = 2; i <= num; i++){
+        if (num % i == 0){
+            bool Esprimo = true;
+
+            for (int j = 2; j * j <= i; j++){
+                if (i % j == 0){
+                    Esprimo = false;
+                    break;
+                }
+            }
+
+            if (Esprimo){
+                MayorFactorPrimo = i;
+            }
         }
     }
-     cout <<  "El primo numero " << num << " es " << numero;
+
+    cout << "El mayor factor primo de " << num << " es " << MayorFactorPrimo << endl;
+
     return 0;
+}
+
+//7. Problema #14:
+Problema14(){
+
+    int MaxPalindromo = 0;
+    int valor1 = 0, valor2 = 0;
+
+    int multiplicacion;
+    for (int i = 100; i <= 999; i++){
+        for (int j = 100; j <= 999; j++){
+            multiplicacion = i * j;
+            string resultado = to_string(multiplicacion);
+
+            bool EsPalindromo = true;
+            for (int r = 0, l = resultado.length() - 1; r < l; r++, l--){
+                if (resultado[r] != resultado[l]){
+                    EsPalindromo = false;
+                    break;
+                }
+            }
+
+            if (EsPalindromo && multiplicacion > MaxPalindromo){
+                MaxPalindromo = multiplicacion;
+                valor1 = i;
+                valor2 = j;
+            }
+        }
     }
+
+    cout << valor1 << " * " << valor2 << " = " << MaxPalindromo << endl;
+
+    return MaxPalindromo;
+}
 
 
 int main()
 {
-    Problema10();
+    Problema14();
     return 0;
 }
