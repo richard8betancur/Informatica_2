@@ -24,7 +24,10 @@ void Problema6();
  */
 void Problema8();
 
-
+/*
+ * 5. Escriba un programa que reciba un numero n e imprima el enesimo numero primo.
+ */
+int Problema10();
 
 //1. Problema #2:
 void Problema2(){
@@ -218,32 +221,91 @@ void Problema8(){
         }
         break;
     }
-    vector<int> multiplosA;
-    vector<int> multiplosB;
-    int resultado1 = 0;
-    int resultado2 = 0;
+    vector<int> multiplos;
 
-    for(int i = 1; a * i <= c; i++){
-        multiplosA.push_back(a*i);
-        resultado1 = (a*i);
-        cout << resultado1;
+    for(int i = a; i < c; i += a){
+        multiplos.push_back(i);
+
     }
 
-    for(int i = 1; b * i <= c; i++){
-        multiplosB.push_back(b*i);
-        resultado2 = (b*i);
-        cout << resultado2;
+
+    for(int i = b; i < c; i += b){
+        bool igual = false;
+        for(int num : multiplos){
+            if(num == i){
+                igual = true;
+                break;
+            }
+        }
+        if(!igual){
+            multiplos.push_back(i);
+        }
     }
 
-    if(resultado1[] != resultado2[]){
-        cout << resultado1 << "+" << resultado2;
+    int suma = 0;
+
+    for(size_t i = 0 ; i < multiplos.size(); i++){
+        if(i > 0) cout << " + ";
+        cout << multiplos[i];
+        suma += multiplos[i];
     }
 
+    cout << " = " << suma << endl;
 }
+
+int Problema10(){
+    int num;
+    while(true){
+        cout << "Ingrese un numero n para calcular el enesimo numero primo: ";
+        cin >> num;
+
+        if (cin.fail()){
+            cout << "Error, ingresa un valor invalido. " << endl;
+
+            cin.clear();
+            cin.ignore(1000, '\n');
+            continue;
+
+        }
+        break;
+    }
+
+
+    if(num < 1){
+
+        cout << "Numero incorrecto";
+
+        return 0;
+
+    }
+
+    int contador = 0;
+    int numero = 2;
+
+    while(contador < num){
+        bool EsPrimo = true;
+        for(int i = 2 ; i*i <= num ; i++){
+            if( num % i == 0){
+                EsPrimo = false;
+                    break;
+            }
+
+        }
+        if(EsPrimo){
+            contador++;
+        }
+
+        if(contador < num){
+            numero++;
+        }
+    }
+     cout <<  "El primo numero " << num << " es " << numero;
+    return 0;
+    }
 
 
 int main()
 {
-    Problema8();
+    Problema10();
     return 0;
 }
