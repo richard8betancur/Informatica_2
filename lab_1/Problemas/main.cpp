@@ -35,10 +35,18 @@ int Problema10();
 int Problema12();
 
 /*
- * 7.escriba un programa que calcule el número palíndromo más grande que se puede
- * obtener como una multiplicación de números de 3 dígitos. |
+ * 7. Escriba un programa que calcule el número palíndromo más grande que se puede
+ * obtener como una multiplicación de números de 3 dígitos.
  */
 int Problema14();
+
+/*
+ * 8. Escriba un programa que reciba un número k y calcule cual es el elemento inicial j(semilla),menor
+ * que k, que produce la serie más larga y diga cuantos términos m tiene la serie.
+ */
+void Problema16();
+
+
 
 
 
@@ -256,6 +264,18 @@ void Problema8(){
             multiplos.push_back(i);
         }
     }
+    int suma = 0;
+    for(int num:multiplos){
+        suma += num;
+    }
+    cout << "Multiplos de " << a << " , y " << b << " menores que " << c << " : ";
+
+    for(int num:multiplos){
+        cout << num << " ";
+    }
+    cout << endl;
+    cout << "Suma de multiplos: " << suma << endl;
+
 }
 
 //5. Problema #10:
@@ -351,7 +371,7 @@ int Problema12(){
 }
 
 //7. Problema #14:
-Problema14(){
+int Problema14(){
 
     int MaxPalindromo = 0;
     int valor1 = 0, valor2 = 0;
@@ -377,15 +397,74 @@ Problema14(){
             }
         }
     }
-
     cout << valor1 << " * " << valor2 << " = " << MaxPalindromo << endl;
 
     return MaxPalindromo;
 }
 
+//8. Problema #16:
+void Problema16(){
+
+    int k;
+
+    while(true){
+        cout << "Ingrese un valor para calcular el elemento menor de dicho numero (mediante la serie Collatz): ";
+        cin >> k;
+
+        if (cin.fail()){
+            cout << "Error, ingresa un valor invalido. " << endl;
+
+            cin.clear();
+            cin.ignore(1000, '\n');
+            continue;
+        }
+
+        break;
+    }
+    cout << "Ingresaste el numero: " << k << endl;
+
+    int MejorSemilla = 1;
+    int cantidad = 0;
+    vector<int> MejorSerie;
+
+    for (int i = 1; i < k; i++) {
+        int numero = i;
+        vector<int> serie;
+        serie.push_back(numero);
+
+        while(numero != 1){
+            if(numero % 2 == 0){
+                numero /= 2;
+            } else{
+                numero = 3 * numero + 1;
+            }
+            serie.push_back(numero);
+        }
+
+        if(serie.size() > cantidad){
+            cantidad = serie.size();
+            MejorSemilla = i;
+            MejorSerie = serie;
+        }
+    }
+    cout << "La serie mas larga es con la semilla: " << MejorSemilla << ", teniendo " << cantidad << " terminos." << endl;
+
+    cout << "Serie: ";
+    for(int num : MejorSerie){
+        cout << num << " ";
+    }
+    cout << endl;
+}
+
 
 int main()
 {
-    Problema14();
+    Problema8();
+
+    cout << "Gracias por usar nuestro programa :) " << endl;
+    cout << "Hecho por Richard y Sebas.";
+
     return 0;
+
+
 }
