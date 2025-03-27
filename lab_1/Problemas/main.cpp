@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
@@ -199,6 +200,43 @@ void Problema6(){
 void Problema8(){
 
 
+    int a, b, c;
+
+    while(true){
+        cout << "Ingrese dos numeros a y b para sumar: ";
+        cin >> a;
+        cin >> b;
+        cout << "Ingrese un numero c para el limite de la suma: ";
+        cin >> c;
+
+        if (cin.fail()){
+            cout << "Error, ingresa un valor invalido. " << endl;
+
+            cin.clear();
+            cin.ignore(1000, '\n');
+            continue;
+
+        }
+        break;
+    }
+    vector<int> multiplosA;
+    vector<int> multiplosB;
+    int resultado1 = 0;
+    int resultado2 = 0;
+
+    for(int i = 1; a * i <= c; i++){
+        multiplosA.push_back(a*i);
+        resultado1 = (a*i);
+        cout << resultado1;
+    }
+
+    for(int i = 1; b * i <= c; i++){
+        multiplosB.push_back(b*i);
+        resultado2 = (b*i);
+        cout << resultado2;
+    }
+
+    for ()
 
 }
 
