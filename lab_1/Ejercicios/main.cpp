@@ -235,7 +235,7 @@ int Ejercicio10(){
             cout << "Error, ingresaste un numero invalido. " << endl;
 
             cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cin.ignore(1000, '\n');
             continue;
         }
         unsigned int multiplo = numero;
@@ -263,7 +263,7 @@ int Ejercicio12(){
             cout << "Error, ingresaste un numero invalido. " << endl;
 
             cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cin.ignore(1000, '\n');
             continue;
         }
 
@@ -309,7 +309,7 @@ int Ejercicio16(){
             cout << "Ingrese un numero valido. " << endl;
 
             cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cin.ignore(1000, '\n');
             continue;
         }
 
@@ -342,7 +342,7 @@ void Ejercicio18(){
             cout << "Ingrese un numero valido. " << endl;
 
             cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cin.ignore(1000, '\n');
             continue;
         }
         break;
@@ -384,10 +384,9 @@ bool Ejercicio20(){
             cout << "Error, ingrese un numero valido" << endl;
 
             cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cin.ignore(1000, '\n');
             continue;
         }
-
         break;
     }
 
@@ -415,7 +414,7 @@ int Ejercicio22(){
             cout << "Ingrese un numero valido. " << endl;
 
             cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cin.ignore(1000, '\n');
             continue;
         }
         break;
@@ -444,7 +443,7 @@ void Ejercicio24(){
             cout << "Error, ingresaste un numero invalido. " << endl;
 
             cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cin.ignore(1000, '\n');
             continue;
         }
         break;
@@ -477,7 +476,7 @@ int Ejercicio26(){
             cout << "Ingresaste un numero invalido. " << endl;
 
             cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cin.ignore(1000, '\n');
             continue;
         }
 
@@ -534,7 +533,7 @@ int Ejercicio30(){
             cout << "Error, ingresaste un numero invalido. " << endl;
 
             cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cin.ignore(1000, '\n');
             continue;
         }
         contador ++;

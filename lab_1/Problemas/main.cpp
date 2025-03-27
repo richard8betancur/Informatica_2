@@ -34,6 +34,11 @@ int Problema10();
  */
 int Problema12();
 
+/*
+ * 7.escriba un programa que calcule el número palíndromo más grande que se puede
+ * obtener como una multiplicación de números de 3 dígitos. |
+ */
+int Problema14();
 
 
 
@@ -57,7 +62,7 @@ void Problema2(){
         break;
     }
 
-    cout << "Ingresaste el numero " << numero << endl;
+    cout << "Ingresaste la cantidad: " << numero << endl;
 
     int restante = numero;
 
@@ -161,7 +166,8 @@ void Problema4(){
     int hora2 = duracion / 100;
     int duracion2 = duracion % 100;
 
-    if (hora1 < 0 || hora1 >= 24 || duracion1 < 0 || duracion1 >= 60 || hora2 < 0 || hora2 >= 24 || duracion2 < 0 || duracion2 >= 60){
+    if (hora1 < 0 || hora1 >= 24 || duracion1 < 0 || duracion1 >= 60 ||
+        hora2 < 0 || hora2 >= 24 || duracion2 < 0 || duracion2 >= 60){
         cout << hora << " o " << duracion << " es un tiempo invalido. " << endl;
         return;
     }
@@ -227,7 +233,6 @@ void Problema8(){
             cin.clear();
             cin.ignore(1000, '\n');
             continue;
-
         }
         break;
     }
@@ -345,9 +350,42 @@ int Problema12(){
     return 0;
 }
 
+//7. Problema #14:
+Problema14(){
+
+    int MaxPalindromo = 0;
+    int valor1 = 0, valor2 = 0;
+
+    int multiplicacion;
+    for (int i = 100; i <= 999; i++){
+        for (int j = 100; j <= 999; j++){
+            multiplicacion = i * j;
+            string resultado = to_string(multiplicacion);
+
+            bool EsPalindromo = true;
+            for (int r = 0, l = resultado.length() - 1; r < l; r++, l--){
+                if (resultado[r] != resultado[l]){
+                    EsPalindromo = false;
+                    break;
+                }
+            }
+
+            if (EsPalindromo && multiplicacion > MaxPalindromo){
+                MaxPalindromo = multiplicacion;
+                valor1 = i;
+                valor2 = j;
+            }
+        }
+    }
+
+    cout << valor1 << " * " << valor2 << " = " << MaxPalindromo << endl;
+
+    return MaxPalindromo;
+}
+
 
 int main()
 {
-    Problema12();
+    Problema14();
     return 0;
 }
