@@ -44,7 +44,7 @@ int Problema14();
  * 8. Escriba un programa que reciba un número k y calcule cual es el elemento inicial j(semilla),menor
  * que k, que produce la serie más larga y diga cuantos términos m tiene la serie.
  */
-int Problema16();
+void Problema16();
 
 
 
@@ -72,7 +72,7 @@ void Problema2(){
 
     cout << "Ingresaste la cantidad: " << numero << endl;
 
-    int restante = numero;
+    unsigned long long int restante = numero;
 
     if (restante / 50000){
         cout << "50000: " << restante / 50000 << endl;
@@ -134,14 +134,14 @@ void Problema2(){
         cout << "100: " << restante / 100 << endl;
         restante %= 100;
     } else {
-        cout << "100 :0" << endl;
+        cout << "100: 0" << endl;
     }
 
     if (restante / 50){
         cout << "50: " << restante / 50 << endl;
         restante %= 50;
     } else {
-        cout << "50 :0" << endl;
+        cout << "50: 0" << endl;
     }
 
     cout << "faltante: " << restante << endl;
@@ -195,8 +195,8 @@ void Problema4(){
 //3. Problema #6:
 void Problema6(){
     int numero;
-    float resultado = 1;
-    float factorial = 1;
+    double resultado = 1.0;
+    double factorial = 1.0;
 
     while(true){
         cout << "Ingrese un numero para calcular la aproximacion del numero euler. " << endl;
@@ -214,7 +214,7 @@ void Problema6(){
 
     cout << "Ingresaste el numero " << numero << endl;
 
-    for (int i = 1; i < numero; i++){
+    for (int i = 1; i <= numero; i++){
         factorial *= i;
         resultado += (1.0 / factorial);
     }
@@ -244,22 +244,23 @@ void Problema8(){
         }
         break;
     }
+
     vector<int> multiplos;
 
     for(int i = a; i < c; i += a){
         multiplos.push_back(i);
-
     }
-
 
     for(int i = b; i < c; i += b){
         bool igual = false;
+
         for(int num : multiplos){
             if(num == i){
                 igual = true;
                 break;
             }
         }
+
         if(!igual){
             multiplos.push_back(i);
         }
@@ -270,13 +271,16 @@ void Problema8(){
         suma += num;
     }
 
-    // Mostrar los múltiplos y la suma
-    cout << "Múltiplos únicos de " << a << " y " << b << " menores que " << c << ": ";
-    for (int num : multiplos) {
+    cout << "Multiplos de " << a << " y " << b << " menores que " << c << ": ";
+
+    for(int num : multiplos){
         cout << num << " ";
     }
     cout << endl;
-    cout << "Suma total: " << suma << endl;
+
+
+    cout << "Suma total de multiplos: " << suma << endl;
+
 }
 
 //5. Problema #10:
@@ -372,7 +376,7 @@ int Problema12(){
 }
 
 //7. Problema #14:
-Problema14(){
+int Problema14(){
 
     int MaxPalindromo = 0;
     int valor1 = 0, valor2 = 0;
@@ -404,7 +408,7 @@ Problema14(){
 }
 
 //8. Problema #16:
-int Problema16(){
+void Problema16(){
 
     int k;
 
@@ -422,16 +426,48 @@ int Problema16(){
 
         break;
     }
+    cout << "Ingresaste el numero: " << k << endl;
 
-    cout << "Numero ingresado: " << k << endl;
+    int MejorSemilla = 1;
+    size_t cantidad = 0;
+    vector<int> MejorSerie;
 
+    for (int i = 1; i < k; i++) {
+        int numero = i;
+        vector<int> serie;
+        serie.push_back(numero);
 
+        while(numero != 1){
+            if(numero % 2 == 0){
+                numero /= 2;
+            } else{
+                numero = 3 * numero + 1;
+            }
+            serie.push_back(numero);
+        }
 
+        if(serie.size() > cantidad){
+            cantidad = serie.size();
+            MejorSemilla = i;
+            MejorSerie = serie;
+        }
+    }
+
+    cout << "La serie mas larga es con la semilla: " << MejorSemilla << ", teniendo " << cantidad << " terminos." << endl;
+
+    cout << "Serie: ";
+    for(int num : MejorSerie){
+        cout << num << " ";
+    }
+    cout << endl;
 }
 
 
 int main()
 {
-    Problema8();
+    Problema6();
+    cout << "Gracias por usar nuestro programa :) " << endl;
+    cout << "Hecho por Richard y Sebas.";
+
     return 0;
 }

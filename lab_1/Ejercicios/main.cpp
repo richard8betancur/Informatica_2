@@ -30,7 +30,7 @@ int Ejercicio8();
 int Ejercicio10();
 
 /*
- * 12. Escriba un programa que pida un numero N e imprima en pantalla todas las potencias desde N^1 hasta N^5
+ * 12. Escriba un programa que pida un numero N e imprima en pantalla todas las potencias desde N^1 hasta N^5.
  */
 int Ejercicio12();
 
@@ -41,12 +41,12 @@ void Ejercicio14();
 
 /*
  * 16. Escriba un programa que pida constantemente numeros hasta que se ingrese el numero 0 e imprimma en pantalla el promedio de los numeros
- * (excluyendo el 0)
+ * (excluyendo el 0).
  */
 int Ejercicio16();
 
 /*
- * 18. Escriba un programa que pida un número N e imprima si es o no un cuadrado perfecto
+ * 18. Escriba un programa que pida un número N e imprima si es o no un cuadrado perfecto.
  */
 void Ejercicio18();
 
@@ -163,6 +163,10 @@ int Ejercicio6(){
             continue;
         }
 
+        if (b < 0){
+            cout << "El resultado de " << a << "^" << b << " es " << 1.0 / resultado << endl;;
+        }
+
         if (a == 0 && b == 0){
             cout << "Error, el resultado de 0^0 es una indeterminacion" << endl;
             return 0;
@@ -190,7 +194,7 @@ int Ejercicio6(){
 int Ejercicio8(){
 
     long long int numero;
-    long long int factorial = 1;
+    unsigned long long factorial = 1;
 
     while (true){
         cout << "Ingrese un numero: ";
@@ -557,7 +561,7 @@ int Ejercicio30(){
 
 int main()
 {
-    Ejercicio30();
+    Ejercicio16();
     return 0;
 }
 
