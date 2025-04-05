@@ -280,7 +280,6 @@ void Problema8(){
 
 
     cout << "Suma total de multiplos: " << suma << endl;
-
 }
 
 //5. Problema #10:
@@ -465,7 +464,7 @@ void Problema16(){
 
 int main()
 {
-    Problema6();
+    Problema10();
     cout << "Gracias por usar nuestro programa :) " << endl;
     cout << "Hecho por Richard y Sebas.";
 

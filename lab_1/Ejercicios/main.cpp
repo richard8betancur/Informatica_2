@@ -562,6 +562,9 @@ int Ejercicio30(){
 int main()
 {
     Ejercicio16();
+    cout << "Gracias por usar nuestro programa :) " << endl;
+    cout << "Hecho por Richard y Sebas.";
+
     return 0;
 }
 
