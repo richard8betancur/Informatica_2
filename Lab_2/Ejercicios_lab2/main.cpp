@@ -7,6 +7,7 @@ using namespace std;
  */
 
 //FUNCION INCORRECTA:
+
 /*
 void fun_c(double *a, int n, double *promedio, double *suma){
     int i;
