@@ -151,57 +151,55 @@ int problema8(){
 
 
 //5. Problema #10:
-int problema10(){
 
-    int numero;
-    cout << "Ingrese un numero entre 1 y 3999: ";
-    cin >> numero;
+int problema10() {
+    string romano;
+    cout << "Ingrese un numero romano en mayusculas (ej: DCLXVI): ";
+    cin >> romano;
 
-    cout << "Ingresaste el numero: " << numero << endl;
+    cout << "El numero ingresado fue: " << romano << endl;
 
+    char simbolos[] = {'I', 'V', 'X', 'L', 'C', 'D', 'M'};
+    int valores[]   = {  1,   5,  10,  50, 100, 500,1000};
 
-    if (numero >= 1 && numero <= 3999){
-        vector<pair<int, string>> valores;
-        valores.push_back(make_pair(1000, "M"));
-        valores.push_back(make_pair(900, "CM"));
-        valores.push_back(make_pair(500, "D"));
-        valores.push_back(make_pair(400, "CD"));
-        valores.push_back(make_pair(100, "C"));
-        valores.push_back(make_pair(90, "XC"));
-        valores.push_back(make_pair(50, "L"));
-        valores.push_back(make_pair(40, "XL"));
-        valores.push_back(make_pair(10, "X"));
-        valores.push_back(make_pair(9, "IX"));
-        valores.push_back(make_pair(5, "V"));
-        valores.push_back(make_pair(4, "IV"));
-        valores.push_back(make_pair(1, "I"));
+    int total = 0;
 
-        string romano = "";
+    for (size_t i = 0; i < romano.length(); i++) {
+        int actual = 0;
+        int siguiente = 0;
 
-        for (int i = 0; i < valores.size(); i++) {
-            while (numero >= valores[i].first) {
-                romano += valores[i].second;
-                numero -= valores[i].first;
+        for (int j = 0; j < 7; j++) {
+            if (romano[i] == simbolos[j]) {
+                actual = valores[j];
+                break;
             }
         }
 
-        cout << "Numero romano: " << romano << endl;
-    } else {
-        cout << "Numero fuera de rango." << endl;
+        if (i + 1 < romano.length()) {
+            for (int j = 0; j < 7; j++) {
+                if (romano[i + 1] == simbolos[j]) {
+                    siguiente = valores[j];
+                    break;
+                }
+            }
+        }
+
+        if (actual == 0) {
+            cout << "Caracter invalido encontrado: " << romano[i] << endl;
+            return 1;
+        }
+
+        if (actual < siguiente) {
+            total -= actual;
+        } else {
+            total += actual;
+        }
     }
+
+    cout << "Que corresponde a: " << total << endl;
 
     return 0;
 }
-
-
-
-
-
-
-
-
-
-
 
 
 
