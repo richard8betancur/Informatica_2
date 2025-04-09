@@ -3,7 +3,6 @@
 #include <ctime>
 #include <cctype>
 #include <vector>
-#include <limits>
 
 using namespace std;
 
@@ -43,6 +42,11 @@ int problema10();
  */
 int problema12();
 
+/*
+ * 14. Elabora un programa que llene una matriz 5x5 con los números del 1 al 25 y la imprima, luego imprime la matriz
+ * rotada 90, 180 y 270 grados.
+ */
+void problema14();
 
 
 //1. Problema #2:
@@ -56,7 +60,6 @@ void problema2(){
     for (int i = 0; i < tam; i++){
         letras[i] = 'A' + rand() % 26;
         cout << letras[i];
-
     }
     cout << endl;
 
@@ -236,16 +239,14 @@ int problema12(){
 
     cout << "Ingresaste el numero: " << numero << endl;
 
-    // Crear la matriz dinámicamente
     int** cuadrado = new int*[numero];
     for (int i = 0; i < numero; i++) {
         cuadrado[i] = new int[numero];
         for (int j = 0; j < numero; j++) {
-            cuadrado[i][j] = 0; // inicializar en 0
+            cuadrado[i][j] = 0;
         }
     }
 
-    // Generar el cuadrado mágico
     int i = 0, j = numero / 2, num = 1;
 
     while (num <= numero * numero) {
@@ -261,7 +262,6 @@ int problema12(){
         }
     }
 
-    // Imprimir la matriz
     cout << "\nCuadrado magico de orden " << numero << ":\n";
     for (int i = 0; i < numero; i++) {
         for (int j = 0; j < numero; j++) {
@@ -270,11 +270,9 @@ int problema12(){
         cout << endl;
     }
 
-    // Mostrar constante mágica
     int constante = numero * (numero * numero + 1) / 2;
     cout << "\nLa constante magica es: " << constante << endl;
 
-    // Liberar la memoria
     for (int i = 0; i < numero; i++) {
         delete[] cuadrado[i];
     }
@@ -283,10 +281,70 @@ int problema12(){
     return 0;
 }
 
+void problema14() {
+
+    const int N = 5;
+    int matriz[N][N];
+
+
+    int num = 1;
+    for (int i = 0; i < N; i++){
+        for (int j = 0; j < N; j++){
+            matriz[i][j] = num++;
+        }
+    }
+
+    auto imprimir = [N](int mat[N][N]){
+        for (int i = 0; i < N; i++){
+            for (int j = 0; j < N; j++){
+                cout << mat[i][j] << "\t";
+            cout << endl;
+            }
+        }
+        cout << endl;
+    };
+
+    cout << "Matriz original: " << endl;
+    imprimir(matriz);
+
+    //Matriz rotada 90 grados.
+    int rot90[N][N];
+    for(int i = 0; i < N; ++i){
+        for(int j = 0; j < N; ++j){
+            rot90[j][N-1-i] = matriz[i][j];
+        }
+    }
+
+    cout << "Matriz rotada 90 grados: " << endl;
+    imprimir(rot90);
+
+    //Matriz rotada 180 grados.
+    int rot180[N][N];
+    for(int i = 0; i < N; ++i){
+        for(int j = 0; j < N; ++j){
+            rot180[N-1-i][N-1-j] = matriz[i][j];
+        }
+    }
+
+    cout << "Matriz rotada 180 grados: " << endl;
+    imprimir(rot180);
+
+    //Matriz rotada 270 grados.
+    int rot270[N][N];
+    for(int i = 0; i < N; ++i){
+        for(int j = 0; j < N; ++j){
+            rot270[N-1-j][i] = matriz[i][j];
+        }
+    }
+
+    cout << "Matriz rotada 270 grados: " << endl;
+    imprimir(rot270);
+}
+
 
 
 int main()
 {
-    problema12();
+    problema14();
     return 0;
 }
