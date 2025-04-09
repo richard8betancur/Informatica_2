@@ -3,6 +3,7 @@
 #include <ctime>
 #include <cctype>
 #include <vector>
+#include <limits>
 
 using namespace std;
 
@@ -35,6 +36,12 @@ int problema8();
  * actualmente.
  */
 int problema10();
+
+/*
+ * 12. Ecribe un programa que permita al usuario ingresar una matriz cuadrada, imprime la matriz y verifica
+ * si la matriz es un cuadrado mágico.
+ */
+int problema12();
 
 
 
@@ -202,10 +209,84 @@ int problema10() {
 }
 
 
+//6. Problema #12:
+int problema12(){
+
+    int numero;
+
+    while (true){
+        cout << "Ingresa un numero impar para el orden del cuadrado magico: " << endl;
+        cin >> numero;
+
+        if (cin.fail()){
+            cout << "Error, ingresaste un numero invalido. " << endl;
+
+            cin.clear();
+            cin.ignore(1000, '\n');
+            continue;
+        }
+
+        if (numero % 2 == 0){
+            cout << "Error, para verificar un cuadrado perfecto el numero no debe ser par. " << endl;
+            continue;
+        }
+
+        break;
+    }
+
+    cout << "Ingresaste el numero: " << numero << endl;
+
+    // Crear la matriz dinámicamente
+    int** cuadrado = new int*[numero];
+    for (int i = 0; i < numero; i++) {
+        cuadrado[i] = new int[numero];
+        for (int j = 0; j < numero; j++) {
+            cuadrado[i][j] = 0; // inicializar en 0
+        }
+    }
+
+    // Generar el cuadrado mágico
+    int i = 0, j = numero / 2, num = 1;
+
+    while (num <= numero * numero) {
+        cuadrado[i][j] = num++;
+        int nueva_i = (i - 1 + numero) % numero;
+        int nueva_j = (j + 1) % numero;
+
+        if (cuadrado[nueva_i][nueva_j] != 0) {
+            i = (i + 1) % numero;
+        } else {
+            i = nueva_i;
+            j = nueva_j;
+        }
+    }
+
+    // Imprimir la matriz
+    cout << "\nCuadrado magico de orden " << numero << ":\n";
+    for (int i = 0; i < numero; i++) {
+        for (int j = 0; j < numero; j++) {
+            cout << cuadrado[i][j] << "\t";
+        }
+        cout << endl;
+    }
+
+    // Mostrar constante mágica
+    int constante = numero * (numero * numero + 1) / 2;
+    cout << "\nLa constante magica es: " << constante << endl;
+
+    // Liberar la memoria
+    for (int i = 0; i < numero; i++) {
+        delete[] cuadrado[i];
+    }
+    delete[] cuadrado;
+
+    return 0;
+}
+
 
 
 int main()
 {
-    problema10();
+    problema12();
     return 0;
 }
