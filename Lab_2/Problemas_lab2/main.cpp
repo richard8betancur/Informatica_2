@@ -48,6 +48,11 @@ int problema12();
  */
 void problema14();
 
+/*
+ * 16. Escribe un programa que reciba un numero n y halla la enésima permutación lexicográfica de los números entre 0 y 9.
+ */
+int problema18();
+
 
 //1. Problema #2:
 void problema2(){
@@ -161,7 +166,6 @@ int problema8(){
 
 
 //5. Problema #10:
-
 int problema10() {
     string romano;
     cout << "Ingrese un numero romano en mayusculas (ej: DCLXVI): ";
@@ -281,6 +285,8 @@ int problema12(){
     return 0;
 }
 
+
+//7. Problema #14:
 void problema14() {
 
     const int N = 5;
@@ -298,7 +304,7 @@ void problema14() {
         for (int i = 0; i < N; i++){
             for (int j = 0; j < N; j++){
                 cout << mat[i][j] << "\t";
-            cout << endl;
+                cout << endl;
             }
         }
         cout << endl;
@@ -342,9 +348,44 @@ void problema14() {
 }
 
 
+//8. Problema #16:
+int problema18(){
+
+    int n;
+
+    cout << "Ingrese un numero: ";
+    cin >> n;
+    int original_n = n;
+
+    vector<int> disponible = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+    string resultado = "";
+    long long factorial = 1;
+    n = n - 1;
+
+    for (size_t i = 1; i < disponible.size(); i++) {
+        factorial *= i;
+    }
+
+    for (int i = 9; i >= 0; i--) {
+        int indice = n / factorial;
+        resultado += to_string(disponible[indice]);
+        disponible.erase(disponible.begin() + indice);
+
+        if (i != 0) {
+            n = n % factorial;
+            factorial /= i;
+        }
+    }
+
+    cout << "La permutacion numero " << original_n << " es: " << resultado << endl;
+
+    return 0;
+}
+
+
 
 int main()
 {
-    problema14();
+    problema18();
     return 0;
 }
