@@ -75,7 +75,7 @@ void problema2(){
 
     int contador[26] = {0};
 
-    for (int i = 0; i < tam; i ++){
+    for (int i = 0; i < tam; i++){
         contador[letras[i] - 'A']++;
     }
 
@@ -138,7 +138,7 @@ int problema6(){
 int problema8(){
 
     string cadena;
-    string numeros = "";
+    string numeros;
     string cadena2;
 
     cout << "Ingrese una cadena de texto: " << endl;
@@ -309,8 +309,8 @@ void problema14() {
         for (int i = 0; i < N; i++){
             for (int j = 0; j < N; j++){
                 cout << mat[i][j] << "\t";
-                cout << endl;
             }
+            cout << endl;
         }
         cout << endl;
     };
@@ -326,7 +326,7 @@ void problema14() {
         }
     }
 
-    cout << "Matriz rotada 90 grados: " << endl;
+    cout << "Matriz rotada 90 grados: " << endl;;
     imprimir(rot90);
 
     //Matriz rotada 180 grados.
@@ -357,7 +357,7 @@ void problema14() {
 void problema16(){
 
     int n;
-    cout << "Ingresa el tamaño de la malla (n): ";
+    cout << "Ingresa el tamaño de la malla: ";
     cin >> n;
 
     long long numerador = 1, factorialN = 1;
@@ -410,9 +410,8 @@ int problema18(){
 }
 
 
-
 int main()
 {
-    problema16();
+    problema18();
     return 0;
 }
