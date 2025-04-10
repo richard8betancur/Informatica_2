@@ -49,7 +49,12 @@ int problema12();
 void problema14();
 
 /*
- * 16. Escribe un programa que reciba un numero n y halla la enésima permutación lexicográfica de los números entre 0 y 9.
+ * 16. Escribe un programa que reciba un número n y calcula el número de caminos posibles en una cuadrícula de nxn.
+ */
+void problema16();
+
+/*
+ * 18. Escribe un programa que reciba un numero n y halla la enésima permutación lexicográfica de los números entre 0 y 9.
  */
 int problema18();
 
@@ -349,6 +354,28 @@ void problema14() {
 
 
 //8. Problema #16:
+void problema16(){
+
+    int n;
+    cout << "Ingresa el tamaño de la malla (n): ";
+    cin >> n;
+
+    long long numerador = 1, factorialN = 1;
+
+    for (int i = 2; i <= 2 * n; i++) {
+        numerador *= i;
+        if (i == n) {
+            factorialN = numerador;
+        }
+    }
+
+    long long caminos = numerador / (factorialN * factorialN);
+
+    cout << "Para una malla de " << n << "x" << n << " puntos hay " << caminos << " caminos." << endl;
+}
+
+
+//9. Problema #18:
 int problema18(){
 
     int n;
@@ -386,6 +413,6 @@ int problema18(){
 
 int main()
 {
-    problema18();
+    problema16();
     return 0;
 }
