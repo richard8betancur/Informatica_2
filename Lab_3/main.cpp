@@ -3,7 +3,7 @@
 #include <fstream>
 #include <bitset>
 
-    using namespace std;
+using namespace std;
 
 bool VerificarClaveAdmin(string claveIngresada, int Semilla, int metodo);
 void RegistrarUsuario();
@@ -617,3 +617,4 @@ string Decodificar2(string Grupos) {
 
     return Decodificado;
 }
+

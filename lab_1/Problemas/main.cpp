@@ -72,7 +72,7 @@ void Problema2(){
 
     cout << "Ingresaste la cantidad: " << numero << endl;
 
-    int restante = numero;
+    unsigned long long int restante = numero;
 
     if (restante / 50000){
         cout << "50000: " << restante / 50000 << endl;
@@ -134,14 +134,14 @@ void Problema2(){
         cout << "100: " << restante / 100 << endl;
         restante %= 100;
     } else {
-        cout << "100 :0" << endl;
+        cout << "100: 0" << endl;
     }
 
     if (restante / 50){
         cout << "50: " << restante / 50 << endl;
         restante %= 50;
     } else {
-        cout << "50 :0" << endl;
+        cout << "50: 0" << endl;
     }
 
     cout << "faltante: " << restante << endl;
@@ -195,8 +195,8 @@ void Problema4(){
 //3. Problema #6:
 void Problema6(){
     int numero;
-    float resultado = 1;
-    float factorial = 1;
+    double resultado = 1.0;
+    double factorial = 1.0;
 
     while(true){
         cout << "Ingrese un numero para calcular la aproximacion del numero euler. " << endl;
@@ -214,7 +214,7 @@ void Problema6(){
 
     cout << "Ingresaste el numero " << numero << endl;
 
-    for (int i = 1; i < numero; i++){
+    for (int i = 1; i <= numero; i++){
         factorial *= i;
         resultado += (1.0 / factorial);
     }
@@ -244,38 +244,42 @@ void Problema8(){
         }
         break;
     }
+
     vector<int> multiplos;
 
     for(int i = a; i < c; i += a){
         multiplos.push_back(i);
-
     }
-
 
     for(int i = b; i < c; i += b){
         bool igual = false;
+
         for(int num : multiplos){
             if(num == i){
                 igual = true;
                 break;
             }
         }
+
         if(!igual){
             multiplos.push_back(i);
         }
     }
+
     int suma = 0;
-    for(int num:multiplos){
+    for (int num : multiplos) {
         suma += num;
     }
-    cout << "Multiplos de " << a << " , y " << b << " menores que " << c << " : ";
 
-    for(int num:multiplos){
+    cout << "Multiplos de " << a << " y " << b << " menores que " << c << ": ";
+
+    for(int num : multiplos){
         cout << num << " ";
     }
     cout << endl;
-    cout << "Suma de multiplos: " << suma << endl;
 
+
+    cout << "Suma total de multiplos: " << suma << endl;
 }
 
 //5. Problema #10:
@@ -424,7 +428,7 @@ void Problema16(){
     cout << "Ingresaste el numero: " << k << endl;
 
     int MejorSemilla = 1;
-    int cantidad = 0;
+    size_t cantidad = 0;
     vector<int> MejorSerie;
 
     for (int i = 1; i < k; i++) {
@@ -447,6 +451,7 @@ void Problema16(){
             MejorSerie = serie;
         }
     }
+
     cout << "La serie mas larga es con la semilla: " << MejorSemilla << ", teniendo " << cantidad << " terminos." << endl;
 
     cout << "Serie: ";
@@ -459,12 +464,9 @@ void Problema16(){
 
 int main()
 {
-    Problema8();
-
+    Problema10();
     cout << "Gracias por usar nuestro programa :) " << endl;
     cout << "Hecho por Richard y Sebas.";
 
     return 0;
-
-
 }
